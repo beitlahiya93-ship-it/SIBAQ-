@@ -1,0 +1,6 @@
+{
+  "name": "Sibaq '26 Poster Generator",
+  "description": "Personalize the Darul Huda Sibaq '26 National Arts Fest poster with your photo and name and download in full resolution.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}
