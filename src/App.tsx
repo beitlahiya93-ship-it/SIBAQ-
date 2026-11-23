@@ -18,31 +18,31 @@ import {
  * ========================================================================== */
 
 // Replace this URL with your own poster template image URL or local asset path.
-const POSTER_IMAGE_URL = '/assets/aistudio/1000135822__1__ee376e19.jpg';
+const POSTER_IMAGE_URL = '/assets/aistudio/SIBAQ_template_clean.jpg';
 
 // Rectangular photo slot coordinates (measured at native 1792 x 2400 resolution)
 const PHOTO_BOX = {
-  x: 1095,
-  y: 1311,
-  width: 302,
-  height: 357,
-  borderRadius: 43,
+  x: 126,
+  y: 912,
+  width: 508,
+  height: 554,
+  borderRadius: 58,
 } as const;
 
 // Name text placement and typography (centered directly below PHOTO_BOX)
 // First Name always renders on line 1, Last Name always renders on line 2.
 const NAME_STYLE = {
-  x: PHOTO_BOX.x + PHOTO_BOX.width / 2, // 1246 — horizontal center of photo box
-  y: 1682, // Top Y position directly below the photo box
-  maxWidth: 340, // Maximum text width before auto-scaling font size down
+  x: PHOTO_BOX.x + PHOTO_BOX.width / 2, // 380 — horizontal center of photo box
+  y: 1497, // Top Y position directly below the photo box
+  maxWidth: 560, // Maximum text width before auto-scaling font size down
   fontFamily: '"Plus Jakarta Sans", system-ui, -apple-system, sans-serif',
   fontWeight: '700',
-  fontSize: 56,
-  minFontSize: 20,
-  lineHeight: 1.16,
+  fontSize: 82,
+  minFontSize: 30,
+  lineHeight: 1.18,
   color: '#FFFFFF',
   textAlign: 'center' as CanvasTextAlign,
-  shadowColor: 'rgba(0, 0, 0, 0.28)',
+  shadowColor: 'rgba(0, 0, 0, 0.24)',
   shadowBlur: 6,
   shadowOffsetY: 2,
 } as const;
@@ -245,7 +245,7 @@ function PhotoCropModal({
     );
     ctx.clip();
 
-    ctx.fillStyle = '#C38B00';
+    ctx.fillStyle = '#EAEAEA';
     ctx.fillRect(0, 0, width, height);
 
     ctx.drawImage(
@@ -399,7 +399,10 @@ function PhotoCropModal({
 
         {/* Interactive Crop Viewport */}
         <div className="px-5 py-5 bg-neutral-900/95 flex flex-col items-center justify-center">
-          <div className="relative w-[220px] sm:w-[240px] aspect-[302/357] select-none">
+          <div
+            className="relative w-[220px] sm:w-[240px] select-none"
+            style={{ aspectRatio: `${PHOTO_BOX.width} / ${PHOTO_BOX.height}` }}
+          >
             <canvas
               ref={cropCanvasRef}
               onPointerDown={handlePointerDown}
